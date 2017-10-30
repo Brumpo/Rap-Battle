@@ -1,0 +1,36 @@
+
+body{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+#workskum{
+  position: absolute;
+  height: inherit;
+  width: 100%;
+}
+.row .col{
+  height: inherit;
+}
+@font-face{
+  font-family: 'graffonti';
+  src: url('../fonts/graffonti-3d-drop/graffonti.3d.drop.[fontvir.us].ttf');
+}
+@font-face {
+    font-family: 'Disko';
+    src: url('../fonts/disko/Disko.ttf');
+}
+@font-face {
+  font-family: 'Street Soul'
+  src: url('../fonts/street-soul/street soul.ttf');
+}
+#streetsoul{
+  font-family: Street Soul;
+  font-size: 12vw;
+}
+#graffonti{
+  font-family: graffonti;
+}
+#diskobar{
+  font-family: Disko;
+}
