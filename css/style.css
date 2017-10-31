@@ -4,7 +4,7 @@ body{
   height: 100%;
   width: 100%;
 }
-#workskum{
+#coverpage{
   position: absolute;
   height: inherit;
   width: 100%;
@@ -25,12 +25,16 @@ body{
   src: url('../fonts/street-soul/street soul.ttf');
 }
 #streetsoul{
-  font-family: Street Soul;
-  font-size: 12vw;
+  font-family: graffonti;
+  font-size: 8vw;
 }
 #graffonti{
   font-family: graffonti;
 }
 #diskobar{
   font-family: Disko;
+}
+#graff{
+  font-family: Street Soul;
+  font-size: 7vw;
 }
