@@ -58,9 +58,11 @@ $(document).ready(function(){
   }
   var getcardl = function(){
     titlel = $trackl.val();
+    let query = titlel.replace(/ /g,'_');
+    query = query.toLowerCase();
     let album = ''
     let sprite = ''
-    let xhr=$.getJSON('https://spoterfyproxy.herokuapp.com/api/track/'+titlel)
+    let xhr=$.getJSON('https://spoterfyproxy.herokuapp.com/api/track/'+query)
     xhr.done(function(data){
       lyricsl = data.lyrics;
       album = data.album;
@@ -72,9 +74,11 @@ $(document).ready(function(){
   }
   var getcardr = function(){
     titler = $trackr.val();
+    let query = titler.replace(/ /g,'_');
+    query = query.toLowerCase();
     let album = ''
     let sprite = ''
-    let xhr=$.getJSON('https://spoterfyproxy.herokuapp.com/api/track/'+titler)
+    let xhr=$.getJSON('https://spoterfyproxy.herokuapp.com/api/track/'+query)
     xhr.done(function(data){
       lyricsr = data.lyrics;
       album = data.album;
