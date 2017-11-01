@@ -31,9 +31,22 @@ $(document).ready(function(){
   };
   var winners = JSON.parse(localStorage.getItem('winners'))|| {};
   console.log(winners);
+  // var convertobj = function(){
+  //   let result = []
+  //   for(let key in winners){
+  //     
+  //   }
+  // }
   var appendtables = function(){
+    let ct=1;
     for(let key in winners){
-      $('<tr><td>' + key + '</td><td>' + winners.key + '</td></tr>').appendTo('tbody')
+      if(ct<6){
+        $('<tr><td>' + (ct).toString() + '</td><td>' + key + '</td><td>' + winners[key] + '</td></tr>').appendTo('tbody');
+        ct++
+      }else{
+        $('<tr><td>' + (ct).toString() + '</td><td>' + key + '</td><td>' + winners[key] + '</td></tr>').appendTo('#leaderboard');
+        ct++
+      }
     }
   }
   appendtables();
