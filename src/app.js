@@ -141,6 +141,6 @@ $(document).ready(function(){
     $winnerr[0].style = 'display:block;';
     $winnerl[0].style = 'display:block;';
   })
-  $winnerr.on('click',storewinnerl);
-  $winnerl.on('click',storewinnerr);
+  $winnerr.on('click',storewinnerr);
+  $winnerl.on('click',storewinnerl);
 });
