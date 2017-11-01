@@ -3,8 +3,45 @@
   <head>
     <meta charset="utf-8">
     <title>Rap Battle Leaderboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/>
+    <link rel='stylesheet' href="css/style.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!-- JS -->
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <script src='src/app.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   </head>
-  <body>
-
+  <body id='longe'>
+    <div id='coverpage' class='row'>
+      <div id='diskobar' class='col s3 red grey-text text-darken-4'>
+        <div class='container'>
+          <div class='section'>
+            <h4><a href='index.html' class='grey-text text-darken-4'>Home</a></h4>
+          </div>
+          <div class='section'>
+            <h4 ><a href='leaderboard.html' class='grey-text text-darken-4'>Leaderboard</a></h4>
+          </div>
+          <div class='section'>
+            <h4 class='padding-bot 10% margin-top 25%'><a href='#' class='grey-text text-darken-4'>Random Battle</a></h4>
+          </div>
+          <br><br><br><br><br><br><br><br><br>
+        </div>
+      </div>
+      <div class='col s9 grey red-text darken-4'>
+        <div class='container'>
+          <table classs='striped'>
+            <thead id='street-soul'>
+              <tr>
+                <th>Song</th>
+                <th>Wins</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

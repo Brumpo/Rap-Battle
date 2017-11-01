@@ -15,6 +15,8 @@ $(document).ready(function(){
   var $form = $('form');
   var $winnerl = $('#winnerl');
   var $winnerr = $('#winnerr');
+  var titlel= '';
+  var titler= '';
   var lyricsl = '';
   var lyricsr = '';
   var kanyeAlbums = {
@@ -27,6 +29,8 @@ $(document).ready(function(){
     the_life_of_pablo : 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/02/17/11/kanye-26de4d2f26f82661.jpg',
     funzies :'https://media.giphy.com/media/51h03rLP33G5G/giphy.gif'
   };
+  var winners = JSON.parse(localStorage.getItem('winners'))|| {};
+  console.log(winners);
   var getsprite = function(album){
     if(album==='the_college_dropout'){
       return kanyeAlbums.the_college_dropout;
@@ -47,30 +51,30 @@ $(document).ready(function(){
     }
   }
   var getcardl = function(){
-    let query= $trackl.val()
+    titlel = $trackl.val();
     let album = ''
     let sprite = ''
-    let xhr=$.getJSON('https://spoterfyproxy.herokuapp.com/api/track/'+query)
+    let xhr=$.getJSON('https://spoterfyproxy.herokuapp.com/api/track/'+titlel)
     xhr.done(function(data){
       lyricsl = data.lyrics;
       album = data.album;
       sprite = getsprite(album);
       $spritel[0].src = sprite;
-      $namel[0].innerHTML=query;
+      $namel[0].innerHTML=titlel;
       $cardl[0].style = 'display:block;';
     })
   }
   var getcardr = function(){
-    let query= $trackr.val()
+    titler = $trackr.val();
     let album = ''
     let sprite = ''
-    let xhr=$.getJSON('https://spoterfyproxy.herokuapp.com/api/track/'+query)
+    let xhr=$.getJSON('https://spoterfyproxy.herokuapp.com/api/track/'+titler)
     xhr.done(function(data){
       lyricsr = data.lyrics;
       album = data.album;
       sprite = getsprite(album);
       $spriter[0].src = sprite;
-      $namer[0].innerHTML=query;
+      $namer[0].innerHTML=titler;
       $cardr[0].style = 'display:block;';
       $fight[0].style = 'display:block;';
     })
@@ -83,7 +87,19 @@ $(document).ready(function(){
     $lyricr[0].innerHTML = lyricsr
     $lyricr[0].style = 'display:block;'
   }
-  var storewinner = function(e){
+  var storewinnerr = function(e){
+    let winct = winners[titler] || 0;
+    winct++;
+    winners[titler] = winct
+    localStorage.setItem('winners',JSON.stringify(winners))
+    alert('we made it');
+    location.reload();
+  }
+  var storewinnerl = function(e){
+    let winct = winners[titlel] || 0;
+    winct++;
+    winners[titlel] = winct
+    localStorage.setItem(JSON.stringify(winners))
     alert('we made it');
     location.reload();
   }
@@ -99,6 +115,6 @@ $(document).ready(function(){
     $winnerr[0].style = 'display:block;';
     $winnerl[0].style = 'display:block;';
   })
-  $winnerr.on('click',storewinner);
-  $winnerl.on('click',storewinner);
+  $winnerr.on('click',storewinnerl);
+  $winnerl.on('click',storewinnerr);
 });
