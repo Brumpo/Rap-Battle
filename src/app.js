@@ -31,6 +31,12 @@ $(document).ready(function(){
   };
   var winners = JSON.parse(localStorage.getItem('winners'))|| {};
   console.log(winners);
+  var appendtables = function(){
+    for(let key in winners){
+      $('<tr><td>' + key + '</td><td>' + winners.key + '</td></tr>').appendTo('tbody')
+    }
+  }
+  appendtables();
   var getsprite = function(album){
     if(album==='the_college_dropout'){
       return kanyeAlbums.the_college_dropout;
