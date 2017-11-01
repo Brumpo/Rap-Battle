@@ -1,6 +1,10 @@
 const expect = chai.expect
 var string = 'HEY itS ME JQueery'
 var album = 'the_college_dropout'
+var object = {
+  sauce : 0,
+  ketchup : 1
+}
 describe('valuetourl',function(){
   it('should replace spaces with underscores',function(){
     const expected = 'HEY_ITS_ME_JQUEERY'
@@ -23,5 +27,12 @@ describe('getsprite',function(){
     const expected = 'https://media.giphy.com/media/51h03rLP33G5G/giphy.gif'
     const actual = (getsprite(string))
     expect(actual).to.equal(expected)
+  })
+})
+describe('convertobj',function(){
+  it('should convert object to an array',function(){
+    const expected = null
+    const actual = (convertobj(object))[0]
+    expect(actual).to.not.equal(expected)
   })
 })

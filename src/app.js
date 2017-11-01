@@ -32,6 +32,17 @@ var getsprite = function(album){
     return kanyeAlbums.funzies;
   }
 }
+var convertobj= function(obj){
+  var result = [];
+  var sorter = [];
+  for(var key in obj){
+    sorter.push([key,obj[key]])
+  }
+  result = sorter.sort(function(a,b){
+    return b[1]-a[1];
+  })
+  return result;
+}
 $(document).ready(function(){
   var $trackl = $('#track_left');
   var $trackr = $('#track_right');
@@ -55,12 +66,7 @@ $(document).ready(function(){
   var lyricsr = '';
   var winners = JSON.parse(localStorage.getItem('winners'))|| {};
   console.log(winners);
-  // var convertobj = function(){
-  //   let result = []
-  //   for(let key in winners){
-  //
-  //   }
-  // }
+  winnerarray = convertobj(winners);
   var appendtables = function(){
     let ct=1;
     for(let key in winners){
