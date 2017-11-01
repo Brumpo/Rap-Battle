@@ -1,9 +1,9 @@
 
-/*body{
+body{
   position: absolute;
-  height: 100%;
+  height: 900px;
   width: 100%;
-}*/
+}
 #longe{
   position: absolute;
   height: 100%;
@@ -16,6 +16,12 @@
 }
 .row .col{
   height: inherit;
+}
+#lyricl{
+  height:200px;
+  width:200px;
+  border:1px solid #ccc;
+  overflow:auto;
 }
 @font-face{
   font-family: 'graffonti';
