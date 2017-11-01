@@ -1,3 +1,37 @@
+var valuetourl = function(val){
+  let query = val.replace(/ /g,'_');
+  query = query.toLowerCase();
+  return query;
+}
+var kanyeAlbums = {
+  the_college_dropout: 'http://i.imgur.com/X2ruUdL.jpg',
+  late_registration:'http://lamusicblog.com/wp-content/uploads/2015/08/kanye-west-Late-Registration-cover.jpg',
+  graduation:'http://cdn3.pitchfork.com/albums/10462/afa9da9d.jpg',
+  heartbreak:'http://www.hypebeast.com/image/2008/11/kanye-west-808s-heartbreak-kaws-2.jpg',
+  mbdtf : 'http://www.missinfo.tv/wp-content/uploads/2010/11/kanye-west-my-beautiful-dark-twisted-fantasy-album-cover-4.png',
+  yeezus : 'https://qph.ec.quoracdn.net/main-qimg-0b4d3539b314fb898a95d424fe1af853',
+  the_life_of_pablo : 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/02/17/11/kanye-26de4d2f26f82661.jpg',
+  funzies :'https://media.giphy.com/media/51h03rLP33G5G/giphy.gif'
+};
+var getsprite = function(album){
+  if(album==='the_college_dropout'){
+    return kanyeAlbums.the_college_dropout;
+  }else if(album==='late_registration'){
+    return kanyeAlbums.late_registration;
+  }else if(album==='graduation'){
+    return kanyeAlbums.graduation;
+  }else if(album==='808s_&amp;_heartbreak'){
+    return kanyeAlbums.heartbreak;
+  }else if(album==='my_beautiful_dark_twisted_fantasy'){
+    return kanyeAlbums.mbdtf;
+  }else if(album==='yeezus'){
+    return kanyeAlbums.yeezus;
+  }else if(album==='the_life_of_pablo'){
+    return kanyeAlbums.the_life_of_pablo;
+  }else{
+    return kanyeAlbums.funzies;
+  }
+}
 $(document).ready(function(){
   var $trackl = $('#track_left');
   var $trackr = $('#track_right');
@@ -19,22 +53,12 @@ $(document).ready(function(){
   var titler= '';
   var lyricsl = '';
   var lyricsr = '';
-  var kanyeAlbums = {
-    the_college_dropout: 'http://i.imgur.com/X2ruUdL.jpg',
-    late_registration:'http://lamusicblog.com/wp-content/uploads/2015/08/kanye-west-Late-Registration-cover.jpg',
-    graduation:'http://cdn3.pitchfork.com/albums/10462/afa9da9d.jpg',
-    heartbreak:'http://www.hypebeast.com/image/2008/11/kanye-west-808s-heartbreak-kaws-2.jpg',
-    mbdtf : 'http://www.missinfo.tv/wp-content/uploads/2010/11/kanye-west-my-beautiful-dark-twisted-fantasy-album-cover-4.png',
-    yeezus : 'https://qph.ec.quoracdn.net/main-qimg-0b4d3539b314fb898a95d424fe1af853',
-    the_life_of_pablo : 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/02/17/11/kanye-26de4d2f26f82661.jpg',
-    funzies :'https://media.giphy.com/media/51h03rLP33G5G/giphy.gif'
-  };
   var winners = JSON.parse(localStorage.getItem('winners'))|| {};
   console.log(winners);
   // var convertobj = function(){
   //   let result = []
   //   for(let key in winners){
-  //     
+  //
   //   }
   // }
   var appendtables = function(){
@@ -50,29 +74,9 @@ $(document).ready(function(){
     }
   }
   appendtables();
-  var getsprite = function(album){
-    if(album==='the_college_dropout'){
-      return kanyeAlbums.the_college_dropout;
-    }else if(album==='late_registration'){
-      return kanyeAlbums.late_registration;
-    }else if(album==='graduation'){
-      return kanyeAlbums.graduation;
-    }else if(album==='808s_&amp;_heartbreak'){
-      return kanyeAlbums.heartbreak;
-    }else if(album==='my_beautiful_dark_twisted_fantasy'){
-      return kanyeAlbums.mbdtf;
-    }else if(album==='yeezus'){
-      return kanyeAlbums.yeezus;
-    }else if(album==='the_life_of_pablo'){
-      return kanyeAlbums.the_life_of_pablo;
-    }else{
-      return kanyeAlbums.funzies;
-    }
-  }
   var getcardl = function(){
     titlel = $trackl.val();
-    let query = titlel.replace(/ /g,'_');
-    query = query.toLowerCase();
+    let query = valuetourl(titlel)
     let album = ''
     let sprite = ''
     let xhr=$.getJSON('https://spoterfyproxy.herokuapp.com/api/track/'+query)
@@ -87,8 +91,7 @@ $(document).ready(function(){
   }
   var getcardr = function(){
     titler = $trackr.val();
-    let query = titler.replace(/ /g,'_');
-    query = query.toLowerCase();
+    let query = valuetourl(titler)
     let album = ''
     let sprite = ''
     let xhr=$.getJSON('https://spoterfyproxy.herokuapp.com/api/track/'+query)
