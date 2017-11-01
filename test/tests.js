@@ -35,4 +35,8 @@ describe('convertobj',function(){
     const actual = (convertobj(object))[0]
     expect(actual).to.not.equal(expected)
   })
+  it('should be an ordered array by number of wins decending',function(){
+    const expected = [['ketchup',1],['sauce',0]]
+    const actual = (convertobj(object))
+  })
 })

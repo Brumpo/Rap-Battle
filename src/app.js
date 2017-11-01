@@ -41,6 +41,7 @@ var convertobj= function(obj){
   result = sorter.sort(function(a,b){
     return b[1]-a[1];
   })
+  console.log(result);
   return result;
 }
 $(document).ready(function(){
@@ -65,16 +66,15 @@ $(document).ready(function(){
   var lyricsl = '';
   var lyricsr = '';
   var winners = JSON.parse(localStorage.getItem('winners'))|| {};
-  console.log(winners);
-  winnerarray = convertobj(winners);
+  var winnerarray = convertobj(winners);
   var appendtables = function(){
     let ct=1;
-    for(let key in winners){
+    for(var i=0;i<winnerarray.length;i++){
       if(ct<6){
-        $('<tr><td>' + (ct).toString() + '</td><td>' + key + '</td><td>' + winners[key] + '</td></tr>').appendTo('tbody');
+        $('<tr><td>' + (ct).toString() + '</td><td>' + winnerarray[i][0] + '</td><td>' + (winnerarray[i][1]).toString() + '</td></tr>').appendTo('tbody');
         ct++
       }else{
-        $('<tr><td>' + (ct).toString() + '</td><td>' + key + '</td><td>' + winners[key] + '</td></tr>').appendTo('#leaderboard');
+        $('<tr><td>' + (ct).toString() + '</td><td>' + winnerarray[i][0] + '</td><td>' + (winnerarray[i][1]).toString() + '</td></tr>').appendTo('#leaderboard');
         ct++
       }
     }
@@ -83,6 +83,7 @@ $(document).ready(function(){
   var getcardl = function(){
     titlel = $trackl.val();
     let query = valuetourl(titlel)
+    titlel = titlel.toUpperCase();
     let album = ''
     let sprite = ''
     let xhr=$.getJSON('https://spoterfyproxy.herokuapp.com/api/track/'+query)
@@ -94,10 +95,14 @@ $(document).ready(function(){
       $namel[0].innerHTML=titlel;
       $cardl[0].style = 'display:block;';
     })
+    xhr.fail(function(){
+      alert('Please enter a valid kanye joint')
+    })
   }
   var getcardr = function(){
     titler = $trackr.val();
     let query = valuetourl(titler)
+    titler = titler.toUpperCase();
     let album = ''
     let sprite = ''
     let xhr=$.getJSON('https://spoterfyproxy.herokuapp.com/api/track/'+query)
@@ -109,6 +114,9 @@ $(document).ready(function(){
       $namer[0].innerHTML=titler;
       $cardr[0].style = 'display:block;';
       $fight[0].style = 'display:block;';
+    })
+    xhr.fail(function(){
+      alert('Please enter a valid kanye joint')
     })
   }
   var appendlyricsl = function(){
@@ -124,15 +132,15 @@ $(document).ready(function(){
     winct++;
     winners[titler] = winct
     localStorage.setItem('winners',JSON.stringify(winners))
-    alert('we made it');
+    alert(titler + ' Wins!');
     location.reload();
   }
   var storewinnerl = function(e){
     let winct = winners[titlel] || 0;
     winct++;
     winners[titlel] = winct
-    localStorage.setItem(JSON.stringify(winners))
-    alert('we made it');
+    localStorage.setItem('winners',JSON.stringify(winners))
+    alert(titlel + ' Wins!');
     location.reload();
   }
   $tracklbutton.on('click',getcardl)
