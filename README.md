@@ -11,5 +11,7 @@ The user lands on the battle page and can input tracks directly into fields, the
 
 next the user choses a winner, the winner is stored in local storage and used to update the top 5 section and leaderboard page
 
+![screen shot 2017-11-01 at 3 16 08 pm](https://user-images.githubusercontent.com/32209142/32298887-337d7d06-bf19-11e7-8927-b9373aac4f70.png)
+
 the user can also navigate to the 'tests' page to see the broswer based tests
 ![screen shot 2017-11-01 at 3 20 26 pm](https://user-images.githubusercontent.com/32209142/32298893-3721e672-bf19-11e7-9c78-fb770e8766e3.png)
