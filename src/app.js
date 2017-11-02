@@ -122,7 +122,7 @@ $(document).ready(function(){
       $cardl[0].style = 'display:block;';
     })
     xhr.fail(function(){
-      alert('Please enter a valid kanye joint')
+      swal("Whoops", "please enter a valid kanye joint", "error");
     })
   }
   var getcardr = function(){
@@ -141,7 +141,7 @@ $(document).ready(function(){
       $cardr[0].style = 'display:block;';
     })
     xhr.fail(function(){
-      alert('Please enter a valid kanye joint')
+      swal("Whoops", "please enter a valid kanye joint", "error");
     })
   }
   var randombattle = function(){
@@ -204,7 +204,7 @@ $(document).ready(function(){
     winct++;
     winners[titlel] = winct;
     localStorage.setItem('winners',JSON.stringify(winners));
-    alert(titlel + ' Wins!');
+    alert(`${titlel} Wins!`);
     location.reload();
   }
   $tracklbutton.on('click',getcardl)
@@ -221,7 +221,7 @@ $(document).ready(function(){
     $cardr[0].style = 'display:none;';
     $cardl[0].style = 'display:none;';
     $namel[0].style = 'display:none;';
-    $namer[0].style = 'display:none;';  
+    $namer[0].style = 'display:none;';
     $fight[0].style = 'display:none;';
     appendlyricsl();
     appendlyricsr();
