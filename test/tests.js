@@ -17,6 +17,18 @@ describe('valuetourl',function(){
     expect(actual).to.equal(expected)
   })
 })
+describe('urltovalue',function(){
+  it('should replace underscores with spaces',function(){
+    const expected = 'hey its me jqueery'
+    const actual = (urltovalue(string)).toLowerCase()
+    expect(actual).to.equal(expected)
+  })
+  it('should change the string to uppercase',function(){
+    const expected = 'HEY ITS ME JQUEERY'
+    const actual = urltovalue(string)
+    expect(actual).to.equal(expected)
+  })
+})
 describe('getsprite',function(){
   it('should return the album art url of the selected',function(){
     const expected = 'http://i.imgur.com/X2ruUdL.jpg'
@@ -38,5 +50,11 @@ describe('convertobj',function(){
   it('should be an ordered array by number of wins decending',function(){
     const expected = [['ketchup',1],['sauce',0]]
     const actual = (convertobj(object))
+  })
+})
+describe('getrandom',function(){
+  it('should return a string',function(){
+    const expected='string'
+    const actual=typeof(getrandom())
   })
 })
