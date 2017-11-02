@@ -55,6 +55,10 @@ body{
   font-family: 'Street Soul'
   src: url('../fonts/street-soul/street soul.ttf');
 }
+#nameleft, #nameright{
+  font-family: Disko;
+  margin: 0;
+}
 #streetsoul{
   font-family: graffonti;
   font-size: 8vw;

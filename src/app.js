@@ -220,6 +220,8 @@ $(document).ready(function(){
     $form[0].style = 'display:none;';
     $cardr[0].style = 'display:none;';
     $cardl[0].style = 'display:none;';
+    $namel[0].style = 'display:none;';
+    $namer[0].style = 'display:none;';  
     $fight[0].style = 'display:none;';
     appendlyricsl();
     appendlyricsr();
