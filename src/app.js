@@ -3,6 +3,16 @@ var valuetourl = function(val){
   query = query.toLowerCase();
   return query;
 }
+var randomsongs = ['ultralight_beam',"father_stretch_my_hands,_pt._1","father_stretch_my_hands,_pt._2",'famous','feedback','low_lights','highlights','freestyle_4',
+'i_love_kanye','waves', 'fml', 'real_friends', 'wolves', 'silver_surfer_intermission', '30_hours', 'no_more_parties_in_l.a.', 'facts_(charlie_heat_version)', 'fade',
+'on_sight','black_skinhead', 'i_am_a_god', 'new_slaves', 'hold_my_liquor', "i'm_in_it",'blood_on_the_leaves','guilt_trip','send_it_up','bound_2',
+'dark_fantasy','gorgeous','power','all_of_the_lights','monster','so_appalled','devil_in_a_new_dress','runaway','hell_of_a_life','blame_game','lost_in_the_world','who_will_survive_in_america',
+'good_morning','champion','i_wonder','good_life','barry_bonds','drunk_&_hot_girls','flashing_lights','everything_i_am','the_glory','homecoming','big_brother','bittersweet_poetry',
+'good_night','good_life','wake_up_mr._west',"heard_'em_say",'touch_the_sky','gold_digger','skit_number_1','drive_slow','my_way_home','crack_music','roses','bring_me_down','addiction','skit_number_2',
+'diamonds_from_sierra_leone_(remix)','we_major','skit_number_3','hey_mama','celebration','skit_number_4','gone','diamonds_from_sierra_leone','late','we_can_make_it_better','diamonds_from_sierra_leone',
+'touch_the_sky','crack_music','drive_slow',"heard_'em_say",'bring_me_down','gone','late','gold_digger','touch_the_sky','intro_(the_college_dropout)',"we_don't_care",'graduation_day','all_falls_down',
+"i'll_fly_away",'spaceship','jesus_walks','never_let_me_down','get_em_high','workout_plan','the_new_workout_plan','slow_jamz','breathe_in,_breathe_out','school_spirit_skit_1','school_spirit',
+'school_spirit_skit_2','2_words','through_the_wire','family_business','last_call','through_the_wire','workout_plan','all_falls_down']
 var kanyeAlbums = {
   the_college_dropout: 'http://i.imgur.com/X2ruUdL.jpg',
   late_registration:'http://lamusicblog.com/wp-content/uploads/2015/08/kanye-west-Late-Registration-cover.jpg',
@@ -31,6 +41,9 @@ var getsprite = function(album){
   }else{
     return kanyeAlbums.funzies;
   }
+}
+var getrandom = function(){
+
 }
 var convertobj= function(obj){
   var result = [];
@@ -63,6 +76,7 @@ $(document).ready(function(){
   var $form = $('form');
   var $winnerl = $('#winnerl');
   var $winnerr = $('#winnerr');
+  var $random = $('#random')
   var titlel= '';
   var titler= '';
   var lyricsl = '';
@@ -121,6 +135,9 @@ $(document).ready(function(){
       alert('Please enter a valid kanye joint')
     })
   }
+  var randombattle = function(){
+
+  }
   var appendlyricsl = function(){
     $lyricl[0].innerHTML = lyricsl
     $lyricl[0].style = 'display:block;'
@@ -147,6 +164,7 @@ $(document).ready(function(){
   }
   $tracklbutton.on('click',getcardl)
   $trackrbutton.on('click',getcardr)
+  $random.on('click',randombattle)
   $fight.on('click', function(){
     $form[0].style = 'display:none;';
     $cardr[0].style = 'display:none;';
