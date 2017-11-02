@@ -3,6 +3,11 @@ var valuetourl = function(val){
   query = query.toLowerCase();
   return query;
 }
+var urltovalue = function(val){
+  let query = val.replace(/_/g,' ');
+  query = query.toUpperCase();
+  return query;
+}
 var randomsongs = ['ultralight_beam',"father_stretch_my_hands,_pt._1","father_stretch_my_hands,_pt._2",'famous','feedback','low_lights','highlights','freestyle_4',
 'i_love_kanye','waves', 'fml', 'real_friends', 'wolves', 'silver_surfer_intermission', '30_hours', 'no_more_parties_in_l.a.', 'facts_(charlie_heat_version)', 'fade',
 'on_sight','black_skinhead', 'i_am_a_god', 'new_slaves', 'hold_my_liquor', "i'm_in_it",'blood_on_the_leaves','guilt_trip','send_it_up','bound_2',
@@ -43,7 +48,8 @@ var getsprite = function(album){
   }
 }
 var getrandom = function(){
-
+  var random = randomsongs[Math.floor(Math.random()*randomsongs.length)];
+  return random;
 }
 var convertobj= function(obj){
   var result = [];
@@ -136,7 +142,40 @@ $(document).ready(function(){
     })
   }
   var randombattle = function(){
-
+    titler = getrandom();
+    titlel = getrandom();
+    let xhr=$.getJSON('https://spoterfyproxy.herokuapp.com/api/track/'+titler)
+    xhr.done(function(data){
+      let album = ''
+      let sprite = ''
+      titler = urltovalue(titler);
+      lyricsr = data.lyrics;
+      album = data.album;
+      sprite = getsprite(album);
+      $spriter[0].src = sprite;
+      $namer[0].innerHTML=titler;
+      $cardr[0].style = 'display:block;';
+      $fight[0].style = 'display:block;';
+    })
+    xhr.fail(function(){
+      alert('Something went wrong with the randomizer, please try again')
+    })
+    let xhl=$.getJSON('https://spoterfyproxy.herokuapp.com/api/track/'+titlel)
+    xhl.done(function(data){
+      let album = ''
+      let sprite = ''
+      titlel = urltovalue(titlel);
+      lyricsl = data.lyrics;
+      album = data.album;
+      sprite = getsprite(album);
+      $spriter[0].src = sprite;
+      $namer[0].innerHTML=titlel;
+      $cardr[0].style = 'display:block;';
+      $fight[0].style = 'display:block;';
+    })
+    xhl.fail(function(){
+      alert('Something went wrong with the randomizer, please try again')
+    })
   }
   var appendlyricsl = function(){
     $lyricl[0].innerHTML = lyricsl
@@ -149,16 +188,16 @@ $(document).ready(function(){
   var storewinnerr = function(e){
     let winct = winners[titler] || 0;
     winct++;
-    winners[titler] = winct
-    localStorage.setItem('winners',JSON.stringify(winners))
+    winners[titler] = winct;
+    localStorage.setItem('winners',JSON.stringify(winners));
     alert(titler + ' Wins!');
     location.reload();
   }
   var storewinnerl = function(e){
     let winct = winners[titlel] || 0;
     winct++;
-    winners[titlel] = winct
-    localStorage.setItem('winners',JSON.stringify(winners))
+    winners[titlel] = winct;
+    localStorage.setItem('winners',JSON.stringify(winners));
     alert(titlel + ' Wins!');
     location.reload();
   }
