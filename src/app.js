@@ -83,6 +83,9 @@ $(document).ready(function(){
   var $winnerl = $('#winnerl');
   var $winnerr = $('#winnerr');
   var $random = $('#random');
+  var $randommobile = $('#mobilerandom');
+  var $clear = $('#clear');
+  var $clearmobile= $('#mobileclear');
   var $menuface = $('#menuface');
   var titlel= '';
   var titler= '';
@@ -175,6 +178,11 @@ $(document).ready(function(){
       alert('Something went wrong with the randomizer, please try again')
     })
   }
+  var clear = function(e){
+    e.preventDefault();
+    localStorage.removeItem('winners');
+    location.reload();
+  }
   var appendlyricsl = function(){
     $lyricl[0].innerHTML = lyricsl
     $lyricl[0].style = 'display:block;'
@@ -205,6 +213,9 @@ $(document).ready(function(){
     $('.tap-target').tapTarget('open');
   })
   $random.on('click',randombattle)
+  $randommobile.on('click',randombattle)
+  $clear.on('click',clear)
+  $clearmobile.on('click',clear)
   $fight.on('click', function(){
     $form[0].style = 'display:none;';
     $cardr[0].style = 'display:none;';

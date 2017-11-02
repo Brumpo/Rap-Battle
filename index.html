@@ -19,7 +19,7 @@
   <body>
     <div id='coverpage' class='row'>
       <div id='diskobar' class='nav wrapper col s1 m2 red grey-text text-darken-4'>
-            <a href="#" data-activates="mobile-demo" class="button-collapse hide-on-large-only"><i class="material-icons hide-on-large-only">menu</i></a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse hide-on-large-only"><i class="material-icons hide-on-large-only grey-text text-darken-4">menu</i></a>
             <ul class="right hide-on-med-and-down">
               <li class='section'>
                 <h4><a href='index.html' class='grey-text text-darken-4'>Home</a></h4>
@@ -31,7 +31,7 @@
                 <h4><a href='test/index.html' class='grey-text text-darken-4'>Tests</a></h4>
               </li>
               <li class='section'>
-                <h4 class='padding-bot 10% margin-top 25%'><a href='#' id = 'random' class='grey-text text-darken-4'>Random Battle</a></h4>
+                <h4 class='padding-bot 10% margin-top 25%'><a href='#' id='random' class='grey-text text-darken-4'>Random Battle</a></h4>
               </li>
               <li class='section'>
                 <h4 class='grey-text text-darken-4'>Top 5</h4>
@@ -47,6 +47,9 @@
                 <tbody>
                 </tbody>
               </table>
+              <li class='section'>
+                <h4 class='grey-text text-darken-4'><a href='#' id='clear' class='grey-text text-darken-4'>Clear</a></h4>
+              </li>
             </ul>
           <br><br><br><br><br><br>
           <div class='nav wrapper'>
@@ -61,7 +64,7 @@
                 <h4><a href='test/index.html' class='grey-text text-darken-4'>Tests</a></h4>
               </li>
               <li class='section'>
-                <h4 class='padding-bot 10% margin-top 25%'><a href='#' class='grey-text text-darken-4'>Random Battle</a></h4>
+                <h4 class='padding-bot 10% margin-top 25%'><a href='#' id='mobilerandom'class='grey-text text-darken-4 random'>Random Battle</a></h4>
               </li>
               <li class='section'>
                 <h4 class='grey-text text-darken-4'>Top 5</h4>
@@ -77,6 +80,9 @@
                   </tbody>
                 </table>
               </li>
+              <li class='section'>
+                <h4 class='grey-text text-darken-4'><a href='#' id='mobileclear' class='grey-text text-darken-4'>Clear</a></h4>
+              </li>
             </ul>
           </div>
           <br><br><br><br><br><br>
@@ -87,13 +93,13 @@
             <div class= 'col s10'>
             </div>
             <div class='col s2'>
-              <a id="face" class="waves-effect waves-light btn btn-floating" style=''><img id = 'menuface' class='circle responsive-img'src='http://i.imgur.com/BSwgL.png'></img><i class="material-icons">face</i></a>
+              <a id="face" class="waves-effect waves-light btn red btn-floating" style=''><img id = 'menuface' class='circle responsive-img'src='http://i.imgur.com/BSwgL.png'></img><i id='bigicon'class="material-icons red">face</i></a>
               <div class="tap-target red" data-activates="face">
                 <div class="tap-target-content">
                   <h5>Rap-Battle</h5>
                   <p class='center'>A place to locally compare the only rap that matters, Kanye rap.
                     Search for 'Ye tracks to compare or click the "Random Battle" link to generate random songs to compare.
-                    Once your tracks are ready to go click the fight button to begin </p>
+                    Once your tracks are ready to go click the fight button to begin comparing tracks</p>
                 </div>
               </div>
             </div>
@@ -124,7 +130,6 @@
           </div>
           <div class='row'>
             <div class='col s4'>
-              <!-- lyricl -->
               <div id = 'cardl'class="card" style='display:none;'>
                 <div class="card-image">
                   <img id='spriteleft' src="">
@@ -135,7 +140,6 @@
             <div class='col s4'>
             </div>
             <div class='col s4'>
-              <!-- lyricr -->
               <div id = 'cardr' class="card" style='display:none;'>
                 <div class="card-image">
                   <img id='spriteright' src="">
@@ -145,12 +149,12 @@
             </div>
           </div>
           <div class='row'>
-            <div class= 'col s6'>
+            <div class= 'col s12 m6'>
               <div id= 'lyricl' class='center-align red-text' style='display:none;'>
               </div>
               <button id= 'winnerl' class='waves-effect waves-light btn red' style='display:none;'>winner</button>
             </div>
-            <div class='col s6'>
+            <div class='col s12 m6'>
               <div id= 'lyricr' class='center-align red-text' style='display:none;'>
               </div>
               <button id= 'winnerr' class='waves-effect waves-light btn red' style='display:none;'>winner</button>
