@@ -82,7 +82,8 @@ $(document).ready(function(){
   var $form = $('form');
   var $winnerl = $('#winnerl');
   var $winnerr = $('#winnerr');
-  var $random = $('#random')
+  var $random = $('#random');
+  var $menuface = $('#menuface');
   var titlel= '';
   var titler= '';
   var lyricsl = '';
@@ -135,7 +136,6 @@ $(document).ready(function(){
       $spriter[0].src = sprite;
       $namer[0].innerHTML=titler;
       $cardr[0].style = 'display:block;';
-      $fight[0].style = 'display:block;';
     })
     xhr.fail(function(){
       alert('Please enter a valid kanye joint')
@@ -144,22 +144,6 @@ $(document).ready(function(){
   var randombattle = function(){
     titler = getrandom();
     titlel = getrandom();
-    let xhr=$.getJSON('https://spoterfyproxy.herokuapp.com/api/track/'+titler)
-    xhr.done(function(data){
-      let album = ''
-      let sprite = ''
-      titler = urltovalue(titler);
-      lyricsr = data.lyrics;
-      album = data.album;
-      sprite = getsprite(album);
-      $spriter[0].src = sprite;
-      $namer[0].innerHTML=titler;
-      $cardr[0].style = 'display:block;';
-      $fight[0].style = 'display:block;';
-    })
-    xhr.fail(function(){
-      alert('Something went wrong with the randomizer, please try again')
-    })
     let xhl=$.getJSON('https://spoterfyproxy.herokuapp.com/api/track/'+titlel)
     xhl.done(function(data){
       let album = ''
@@ -171,9 +155,23 @@ $(document).ready(function(){
       $spritel[0].src = sprite;
       $namel[0].innerHTML=titlel;
       $cardl[0].style = 'display:block;';
-      $fight[0].style = 'display:block;';
     })
     xhl.fail(function(){
+      alert('Something went wrong with the randomizer, please try again')
+    })
+    let xhr=$.getJSON('https://spoterfyproxy.herokuapp.com/api/track/'+titler)
+    xhr.done(function(data){
+      let album = ''
+      let sprite = ''
+      titler = urltovalue(titler);
+      lyricsr = data.lyrics;
+      album = data.album;
+      sprite = getsprite(album);
+      $spriter[0].src = sprite;
+      $namer[0].innerHTML=titler;
+      $cardr[0].style = 'display:block;';
+    })
+    xhr.fail(function(){
       alert('Something went wrong with the randomizer, please try again')
     })
   }
@@ -203,6 +201,9 @@ $(document).ready(function(){
   }
   $tracklbutton.on('click',getcardl)
   $trackrbutton.on('click',getcardr)
+  $menuface.on('click',function(){
+    $('.tap-target').tapTarget('open');
+  })
   $random.on('click',randombattle)
   $fight.on('click', function(){
     $form[0].style = 'display:none;';

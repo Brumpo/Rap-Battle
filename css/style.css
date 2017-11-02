@@ -1,7 +1,7 @@
 
 body{
   position: absolute;
-  height: 900px;
+  height: 1100px;
   width: 100%;
 }
 #longe{
@@ -18,14 +18,16 @@ body{
   height: inherit;
 }
 #lyricl{
-  height:200px;
-  width:200px;
+  height:600px;
+  width:400px;
+  margin: 0px;
   border:1px solid #ccc;
   overflow:auto;
 }
 #lyricr{
-  height:200px;
-  width:200px;
+  height:600px;
+  width:400px;
+  margin: 0px;
   border:1px solid #ccc;
   overflow:auto;
 }
