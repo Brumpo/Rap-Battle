@@ -168,9 +168,9 @@ $(document).ready(function(){
       lyricsl = data.lyrics;
       album = data.album;
       sprite = getsprite(album);
-      $spriter[0].src = sprite;
-      $namer[0].innerHTML=titlel;
-      $cardr[0].style = 'display:block;';
+      $spritel[0].src = sprite;
+      $namel[0].innerHTML=titlel;
+      $cardl[0].style = 'display:block;';
       $fight[0].style = 'display:block;';
     })
     xhl.fail(function(){
