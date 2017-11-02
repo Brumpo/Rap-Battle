@@ -46,6 +46,7 @@ var convertobj= function(obj){
 }
 $(document).ready(function(){
   $('.materialboxed').materialbox();
+  $(".button-collapse").sideNav();
   var $trackl = $('#track_left');
   var $trackr = $('#track_right');
   var $tracklbutton = $('#tracklsub');
