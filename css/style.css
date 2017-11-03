@@ -1,31 +1,10 @@
-@media only screen and (max-width: 800px) {
-    body {
-        height: 100vh;
-    }
-    #lyricl, #lyricr{
-      height: 50vh;
-      width: 15vw;
-    }
-}
-html, body{
+
+@media only screen and (min-width: 801px){
+#html, #body{
   position: absolute;
-  height: 150vh;
+  height: 250vh;
   width: 100vw;
   overflow-x: hidden;
-}
-
-#longe{
-  position: absolute;
-  height: 100%;
-  width: 100%;
-}
-#coverpage{
-  position: absolute;
-  height: inherit;
-  width: 100%;
-}
-.row .col{
-  height: inherit;
 }
 #lyricl{
   height:80vh;
@@ -44,6 +23,37 @@ html, body{
   font-size: 1.25em;
   overflow:auto;
 }
+}
+@media only screen and (max-width: 800px) {
+  #html,  #body {
+        position: absolute;
+        height: 50px;
+        width: 100vw;
+        overflow-x: hidden;
+    }
+    #lyricl, #lyricr{
+      height: 50vh;
+      width: 15vw;
+      margin: 0px;
+      border:1px solid #ccc;
+      font-size: 1.25em;
+      overflow:auto;
+    }
+}
+#longe{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+#coverpage{
+  position: absolute;
+  height: inherit;
+  width: 100%;
+}
+.row .col{
+  height: inherit;
+}
+
 #bigicon{
   height: 10%;
   width: 10%;
