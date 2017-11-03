@@ -207,6 +207,13 @@ $(document).ready(function(){
     alert(`${titlel} Wins!`);
     location.reload();
   }
+
+var scrollEventHandler = function()
+{
+  window.scroll(0, window.pageYOffset)
+}
+
+window.addEventListener("scroll", scrollEventHandler, false);
   $tracklbutton.on('click',getcardl)
   $trackrbutton.on('click',getcardr)
   $menuface.on('click',function(){

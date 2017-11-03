@@ -1,14 +1,19 @@
-
-body{
+@media only screen and (max-width: 800px) {
+    body {
+        height: 100vh;
+    }
+    #lyricl, #lyricr{
+      height: 50vh;
+      width: 15vw;
+    }
+}
+html, body{
   position: absolute;
   height: 150vh;
   width: 100vw;
+  overflow-x: hidden;
 }
-@media only screen and (max-width: 500px) {
-    body {
-        height: 300vh;
-    }
-}
+
 #longe{
   position: absolute;
   height: 100%;
